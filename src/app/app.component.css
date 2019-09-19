@@ -1,0 +1,15 @@
+.lftpad{
+    padding-left:25px;
+}
+.selected{
+    color:blue;    
+}
+.txtcolor{
+text-decoration:none;
+}
+.sample{
+    font-family: 'Times New Roman', Times, serif;
+}
+a{
+    color: black;
+}

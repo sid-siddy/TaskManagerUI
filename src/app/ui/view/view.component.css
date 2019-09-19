@@ -1,0 +1,42 @@
+.labelwidth{
+    width: 50px;
+}
+.row1width{
+    padding-left: 10px;
+}
+.buttonwidth{
+    
+    background-color: lightsteelblue;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 15px;
+    height: 30px;
+}
+.btnendwidth{
+    width:80px;
+}
+.borderless th,.borderless tr{
+    border: 0;
+}
+ /* .col-md-1{
+    padding-left: 35px;
+}
+.col-md-2{
+    max-width:13.666667%;
+}
+.col-md-5{
+    max-width: 38.666667%;
+} */
+
+.container{
+    padding-top: 25px;
+    }
+
+    .txtcolor{
+        background-color: whitesmoke;
+        padding: 0px;
+    }
+.btnwidth{
+    background-color: whitesmoke;
+    padding: 0px;
+}

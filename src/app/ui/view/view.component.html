@@ -1,0 +1,87 @@
+<div class="container">   
+  <div class="row">
+      <div class="col-md-1">
+         <label for="lbltask" class="control-label">Task:</label>
+       </div>  
+
+       <div class="col-md-5">
+           <input type="text" class="form-control input-sm txtcolor" [(ngModel)]="item.TaskName" id="txttask" (keyup) = 'searchbytask(item.TaskName)'>
+        </div>
+
+        <div class="col-md-1">
+            <label for="lbltask" class="control-label">Parent Task:</label>
+         </div>
+
+         <div class="col-md-5">
+            <input type="text" class="form-control input-sm txtcolor" [(ngModel)]="item.ParentName" id="txtparenttask" (keyup) = 'searchbyparent(item.ParentName)'>
+         </div>
+
+    </div> 
+    <hr/>
+  <div class="row">
+   
+      <div class="col-md-1">
+          <label for="lbltask" class="control-label">Priority From:</label>
+      </div>  
+      <div class="col-md-2">
+            <input type="text" class="form-control input-sm txtcolor " [(ngModel)]="item.Priority" id="txttask" (keyup) = 'serachbypriorityfrom(item.Priority)'>
+       </div>    
+   
+        <div class="col-md-1 ">
+            <label for="lbltask" class="control-label" >Priority To:</label>
+        </div>  
+        <div class="col-md-2">
+              <input type="text" class="form-control input-sm txtcolor" [(ngModel)]="item.Priorityto" id="txttask" (keyup) = 'serachbypriorityto(item.Priorityto)'>
+         </div>    
+   
+          <div class="col-md-1 ">
+              <label for="lbltask" class="control-label" >Start Date:</label>
+          </div>  
+          <div class="col-md-2">
+                <input type="Date" class="form-control input-sm btnwidth" [(ngModel)]="item.SDate" id="txttask" (ngModelChange) = 'SearchBySDate($event)'>
+          </div>           
+          <div class="col-md-1 ">
+              <label for="lbltask" class="control-label" >End Date:</label>
+          </div>  
+          <div class="col-md-2">
+                <input type="Date" class="form-control input-sm btnwidth" [(ngModel)]="item.EDate" id="txttask" (ngModelChange) = 'SearchByEDate($event)'>
+           </div>     
+  </div>
+  <hr/>
+  <div>
+    <table class="table table-stripped borderless th borderless tr">
+      <thead>
+          <tr>
+            <th>Task</th>
+            <th>Parent</th>
+            <th>Priority</th>
+            <th>Start</th>
+            <th>End</th>           
+          </tr>
+      </thead>
+      <tbody *ngFor ="let item of list1">        
+        <!-- <tr>
+            <td><input type="text" class="form-control txtcolor" placeholder="Task4" [(ngModel)]="item.Task"></td>
+            <td><input type="text" class="form-control txtcolor" placeholder="ParentTask4"[(ngModel)]="item.ParentTask" ></td>
+            <td></td> 
+            <td>20/1/2018</td> 
+            <td>22/1/2018</td> 
+            <td ><button (click)=Edit() id="Edit" class="buttonwidth ">Edit</button></td>         
+            <td><button id="End" class="buttonwidth btnendwidth">End Task</button></td> 
+            <td><button id="Delete" class="buttonwidth">Delete</button></td>
+        </tr> -->
+        <tr >
+            <td>{{item.TaskName}}</td>
+            <td>{{item.ParentName}}</td>
+            <td>{{item.Priority}}</td>
+            <td>{{item.SDate | date : 'dd/MM/yyyy' }}</td>
+            <td>{{item.EDate | date : 'dd/MM/yyyy' }}</td>    
+            <td ><button (click)=Edit(item.TaskId) id="Edit" class="buttonwidth" [disabled]="item.flag===true">Edit</button></td>
+            <td><button (click)=EndTask(item.TaskId) id="End" class="buttonwidth btnendwidth" [disabled]="item.flag===true">End Task</button></td> 
+            <td><button (click)=Delete(item.TaskId) id="Delete" class="buttonwidth" [disabled]="item.flag===false">Delete</button></td>        
+            <!-- <td><button (click)=Delete(item.TaskId) id="Delete" class="buttonwidth" ng-disabled="">Delete</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

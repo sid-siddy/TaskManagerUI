@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <h4>UPDATE</h4>
+  </div>
+  
+  <div class="row">
+      <div class="col-md-12">
+          <label  class="control-label lblcolor" >{{Recordadded}}</label>
+  </div> 
+
+  </div>
+     <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Task:</label>
+          </div>       
+            <div class="col-md-8">
+              <input type="text"[(ngModel)]="item.TaskName" class="txtcolor form-control" value="{{item.TaskName}}">
+            </div>          
+      </div>    
+      <!-- <div class="row priority ">                     
+          <div class="col-md-12 ">            
+            {{ rangevalue }}
+          </div>                  
+    </div> -->
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Priority:</label>
+          </div>              
+            <div class="col-md-8">            
+              <input type="Range"[(ngModel)]="item.Priority" class="txtcolor form-control" min="0" max="50" value="{{item.Priority}}" >
+            </div>                  
+      </div>
+     
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Parent Task:</label>
+          </div>    
+            <div class="col-md-8">            
+            <!-- <input type="text" [(ngModel)]="item.ParentTask" class="form-control input-sm txtColor"> -->
+            <select [(ngModel)]="item.ParentName" class='parenttask'>
+              <option [value]=item.ParentName *ngFor="let item of list" class="txtcolor form-control">{{item.ParentName}}</option>        
+              </select>
+            </div>
+        </div>
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Start Date:</label>
+          </div>                  
+            <div class="col-md-8">            
+              <input type="text" [(ngModel)]="item.SDate" class="txtcolor form-control" value="{{item.SDate}}">
+            </div>          
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">End Date:</label>
+          </div>          
+          <div class="col-md-8">            
+            <input type="date-local" [(ngModel)]="item.EDate" class="txtcolor form-control" value="{{item.EDate}}">
+            </div>                   
+      </div>
+      <div class="row">
+          <div class="col-md-4"></div>            
+            <div class="col-md-8">            
+                <button (click)="Update()" class="buttonwidth">Update</button>
+                <button (click)="Cancel()" class="buttonwidth lftpad">Cancel</button>
+            </div>          
+      </div>
+    </div>

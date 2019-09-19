@@ -1,0 +1,76 @@
+<form>
+  <div class="container">
+          <div class="row">
+         <h4>Add a Task</h4>
+     </div>
+     <div class="row">
+          <div class="col-md-12">
+              <label class="control-label lblcolor">{{Recordadded}}</label>
+      </div> 
+     </div>
+     <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Task:</label>
+          </div>       
+            <div class="col-md-8">
+                <input type="text" id='Taskname' required [(ngModel)]="item.TaskName" class="form-control input-sm txtColor" [ngModelOptions]="{standalone: true}">
+            </div>          
+      </div>    
+      <!-- <div class="row priority ">                     
+              <div class="col-md-12 ">            
+                {{ rangevalue }}
+              </div>                  
+        </div> -->
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Priority:</label>
+          </div>              
+            <div class="col-md-8">            
+               <input type="range" id='Priority' [(ngModel)]="item.Priority" class="form-control input-sm txtColor" min="0" max="30"  value="0" [ngModelOptions]="{standalone: true}">            
+            </div>                  
+      </div>
+  
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Parent Task:</label>
+          </div>    
+            <div class="col-md-8">            
+            <!-- <input type="text" [(ngModel)]="item.ParentTask" class="form-control input-sm txtColor"> -->
+           <select [(ngModel)]="item.ParentName" id='Parenttask' class="parenttask" [ngModelOptions]="{standalone: true}" >
+           <option class="form-control input-sm txtColor" [value]="item.TaskName" *ngFor="let item of list">{{item.TaskName}}</option>
+              </select>
+            </div>
+        </div>
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">Start Date:</label>
+          </div>                  
+            <div class="col-md-8">            
+                <input type="date" id='Sdate' [(ngModel)]="item.SDate" class="form-control input-sm txtColor" [ngModelOptions]="{standalone: true}">
+            </div>          
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <label  class="control-label">End Date:</label>
+          </div>          
+          <div class="col-md-8">            
+                <input type="date"  id='Edate' [(ngModel)]="item.EDate" class="form-control input-sm txtColor" [ngModelOptions]="{standalone: true}">
+            </div>                   
+      </div>
+      <div class="row">
+          <div class="col-md-4"></div>            
+            <div class="col-md-8">            
+                <button (click)="Add()" class="buttonwidth"  >Add Task</button>
+                <button (click)="Reset()" class="buttonwidth lftpad">Reset</button>
+            </div>          
+      </div>
+  </div>
+  <!-- <div  *ngIf="Games?.length == 0">
+      <span class="search_no_results">
+         No data found 
+      </span>
+  </div> -->
+  <div class="success" *ngIf="showSuccessMessage">
+      Saved successfully
+  </div>
+  </form>
